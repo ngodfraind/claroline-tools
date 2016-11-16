@@ -24,7 +24,16 @@ php -r "if (hash_file('SHA384', 'composer-setup.php') === 'aa96f26c2b67226a324c2
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
+sudo mv composer.phar /usr/bin/composer
 
 #installing nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
 
+export NVM_DIR=$HOME/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+nvm install 5.6
+npm install -g npm
+nvm use 5.6
+
+echo "nvm use 5.6" >> $HOME/.zshrc
